@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Rayhanul Islam Shihab — AI Data & Linguistic Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #09090B;
+            --bg-card: #121215;
+            --bg-card-hover: #18181C;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(16, 185, 129, 0.4);
+            --text-primary: #FAFAFA;
+            --text-secondary: #A1A1AA;
+            --text-muted: #71717A;
+            --accent-emerald: #10B981;
+            --accent-emerald-dim: rgba(16, 185, 129, 0.12);
+            --accent-amber: #F59E0B;
+            --accent-amber-dim: rgba(245, 158, 11, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 15% 0%, rgba(16, 185, 129, 0.07) 0%, transparent 40%),
+                radial-gradient(circle at 85% 10%, rgba(245, 158, 11, 0.05) 0%, transparent 35%);
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        nav {
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .nav-inner {
+            background: rgba(18, 18, 21, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 999px;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .brand span {
+            color: var(--accent-emerald);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            background: var(--text-primary);
+            color: var(--bg-base);
+            padding: 0.45rem 1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.03);
+            opacity: 0.92;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 2.5rem 1.25rem 4rem;
+        }
+
+        /* Hero Bento Grid */
+        .hero-bento {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .bento-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            padding: 2.25rem;
+            transition: border-color 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-emerald-dim);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: var(--accent-emerald);
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            margin-bottom: 1.5rem;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-emerald);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .hero-main h1 {
+            font-size: clamp(2.1rem, 4vw, 3.1rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.12;
+            margin-bottom: 0.85rem;
+            background: linear-gradient(180deg, #FFFFFF 0%, #A1A1AA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-role {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-emerald);
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-bio {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            max-width: 580px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+        }
+
+        .btn-glow {
+            background: var(--accent-emerald);
+            color: #052E16;
+            font-weight: 700;
+            padding: 0.8rem 1.6rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.92rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 24px rgba(16, 185, 129, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Side Metrics Card */
+        .hero-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.25rem;
+        }
+
+        .metric-item {
+            padding-bottom: 1.1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .metric-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .metric-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .metric-sub {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        /* Section Headings */
+        .section-header {
+            margin-bottom: 1.75rem;
+        }
+
+        .section-kicker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--accent-emerald);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .section-block {
+            margin-bottom: 4rem;
+        }
+
+        /* Experience Grid */
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .exp-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.75rem;
+        }
+
+        .exp-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.3rem 0.65rem;
+            border-radius: 6px;
+            display: inline-block;
+            width: fit-content;
+            margin-bottom: 1rem;
+        }
+
+        .exp-card h3 {
+            font-size: 1.12rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .exp-company {
+            font-size: 0.88rem;
+            color: var(--accent-emerald);
+            font-weight: 600;
+            margin-bottom: 0.85rem;
+        }
+
+        .exp-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Skills Bento */
+        .skills-bento {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .skill-card {
+            padding: 1.75rem;
+        }
+
+        .tier-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+        }
+
+        .tier-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .tier-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .tier-expert {
+            background: var(--accent-emerald-dim);
+            color: var(--accent-emerald);
+        }
+
+        .tier-inter {
+            background: var(--accent-amber-dim);
+            color: var(--accent-amber);
+        }
+
+        .tier-beg {
+            background: rgba(255, 255, 255, 0.07);
+            color: var(--text-secondary);
+        }
+
+        .chip-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            padding: 0.4rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .chip:hover {
+            color: var(--text-primary);
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        /* Redesigned Core Expertise / Core Services Grid (Replaced old "What I Deliver" look) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .service-card {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .service-icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--accent-emerald-dim);
+            color: var(--accent-emerald);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* Certifications / Professional Credentials (Refined Section 4) */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.75rem;
+        }
+
+        .cert-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--accent-emerald-dim);
+            color: var(--accent-emerald);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        /* Contact CTA */
+        .cta-card {
+            background: linear-gradient(135deg, #121215 0%, #0F1F18 100%);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 28px;
+            padding: 3.5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-card h2 {
+            font-size: clamp(1.75rem, 3vw, 2.35rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+        }
+
+        .cta-card p {
+            color: var(--text-secondary);
+            max-width: 540px;
+            margin: 0 auto 2rem;
+            font-size: 0.98rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem 1.25rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-bento,
+            .exp-grid,
+            .skills-bento,
+            .services-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Glass Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="brand">Md. Rayhanul Islam Shihab <span>/ AI Specialist</span></a>
+            <ul class="nav-links">
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#expertise">Core Expertise</a></li>
+                <li><a href="#credentials">Credentials</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Hire Me</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- Hero Bento Section -->
+        <div class="hero-bento">
+            <div class="bento-card hero-main">
+                <div class="status-pill">
+                    <span class="pulse-dot"></span> Available for Remote & AI Contracts
+                </div>
+                <h1>Md. Rayhanul Islam Shihab</h1>
+                <div class="hero-role">AI Data Specialist • Bengali Linguist • Digital Operations Associate</div>
+                <p class="hero-bio">
+                    Bilingual professional combining native Bengali fluency and C1 English proficiency with extensive experience in RLHF model evaluation, audio transcription, digital content moderation, and high-performance remote operations.
+                </p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-glow">Get in Touch ↗</a>
+                    <button onclick="copyEmail()" id="copyBtn" class="btn-glass">Copy Email</button>
+                </div>
+            </div>
+
+            <div class="bento-card hero-side">
+                <div class="metric-item">
+                    <div class="metric-label">Language Proficiency</div>
+                    <div class="metric-value">Native BN + C1 EN</div>
+                    <div class="metric-sub">Localization & Dialect QA</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Core Specialization</div>
+                    <div class="metric-value">RLHF & Audio QA</div>
+                    <div class="metric-sub">Outlier.ai & Multi-Modal Annotation</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Location & Timezone</div>
+                    <div class="metric-value">Dhaka, BD (GMT+6)</div>
+                    <div class="metric-sub">Global Remote Ready</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Section (Extracted from LinkedIn & Profile History) -->
+        <section id="experience" class="section-block">
+            <div class="section-header">
+                <span class="section-kicker">// 01. Career History</span>
+                <h2 class="section-title">Professional Experience</h2>
+            </div>
+
+            <div class="exp-grid">
+                <div class="bento-card exp-card">
+                    <div>
+                        <span class="exp-badge">AI Model Training</span>
+                        <h3>AI Data Annotator & RLHF Specialist</h3>
+                        <div class="exp-company">Outlier.ai</div>
+                    </div>
+                    <p>
+                        Evaluating audio transcripts, validating model outputs, and executing bounding-box & text calibrations to enhance generative AI accuracy against strict compliance rubrics.
+                    </p>
+                </div>
+
+                <div class="bento-card exp-card">
+                    <div>
+                        <span class="exp-badge">IT & Digital Ops</span>
+                        <h3>IT Operations Associate</h3>
+                        <div class="exp-company">Stalar Technology PTE Ltd.</div>
+                    </div>
+                    <p>
+                        Managed technical workflows, agency partner networks, and system operations to ensure smooth execution across remote digital products.
+                    </p>
+                </div>
+
+                <div class="bento-card exp-card">
+                    <div>
+                        <span class="exp-badge">Content Moderation & QA</span>
+                        <h3>Digital Operations & Content Moderator</h3>
+                        <div class="exp-company">Genex Infosys / TalenTracker</div>
+                    </div>
+                    <p>
+                        Evaluated and audited high-volume multi-format content for global social platforms (such as IMO and Likee) against strict Trust & Safety safety guidelines.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Bento Grid -->
+        <section id="skills" class="section-block">
+            <div class="section-header">
+                <span class="section-kicker">// 02. Capabilities</span>
+                <h2 class="section-title">Skills & Technical Stack</h2>
+            </div>
+
+            <div class="skills-bento">
+                <div class="bento-card skill-card">
+                    <div class="tier-header">
+                        <span class="tier-title">Core Mastery</span>
+                        <span class="tier-pill tier-expert">EXPERT</span>
+                    </div>
+                    <div class="chip-container">
+                        <span class="chip">Native Bengali</span>
+                        <span class="chip">Translation & Localization</span>
+                        <span class="chip">AI Data Annotation</span>
+                        <span class="chip">RLHF Evaluation</span>
+                        <span class="chip">Audio Transcription</span>
+                        <span class="chip">Content Moderation</span>
+                        <span class="chip">Quality Assurance</span>
+                        <span class="chip">Data Entry & Management</span>
+                    </div>
+                </div>
+
+                <div class="bento-card skill-card">
+                    <div class="tier-header">
+                        <span class="tier-title">Production & Media</span>
+                        <span class="tier-pill tier-inter">INTERMEDIATE</span>
+                    </div>
+                    <div class="chip-container">
+                        <span class="chip">C1 English Proficiency</span>
+                        <span class="chip">.SRT & Subtitling</span>
+                        <span class="chip">CapCut</span>
+                        <span class="chip">Adobe Premiere Pro</span>
+                        <span class="chip">Descript</span>
+                        <span class="chip">Google Sheets / Excel</span>
+                        <span class="chip">Market Research</span>
+                    </div>
+                </div>
+
+                <div class="bento-card skill-card">
+                    <div class="tier-header">
+                        <span class="tier-title">Automation & Tools</span>
+                        <span class="tier-pill tier-beg">EXPLORING</span>
+                    </div>
+                    <div class="chip-container">
+                        <span class="chip">n8n Workflow Automation</span>
+                        <span class="chip">AI Agent Pipelines</span>
+                        <span class="chip">API Webhooks</span>
+                        <span class="chip">Prompt Engineering</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Redesigned Core Expertise Section (Replaced old "What I Deliver") -->
+        <section id="expertise" class="section-block">
+            <div class="section-header">
+                <span class="section-kicker">// 03. Core Competencies</span>
+                <h2 class="section-title">Areas of Expertise</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="bento-card service-card">
+                    <div class="service-icon-box">🗣️</div>
+                    <h3>Bilingual Linguistic & Localization</h3>
+                    <p>
+                        Executing high-precision translation, context validation, phonetic assessment, and regional dialect adaptation between Bengali and English for global datasets.
+                    </p>
+                </div>
+
+                <div class="bento-card service-card">
+                    <div class="service-icon-box">⚡</div>
+                    <h3>AI Data Annotation & RLHF</h3>
+                    <p>
+                        Specialized in training large language models (LLMs), ranking model generations, identifying hallucinations, and formatting structured prompt datasets.
+                    </p>
+                </div>
+
+                <div class="bento-card service-card">
+                    <div class="service-icon-box">🎧</div>
+                    <h3>Audio Transcription & Subtitling</h3>
+                    <p>
+                        Delivering frame-accurate timestamping, clean-read transcripts, `.srt` creation, and burned-in subtitles utilizing industry-standard editing software.
+                    </p>
+                </div>
+
+                <div class="bento-card service-card">
+                    <div class="service-icon-box">🛡️</div>
+                    <h3>Digital Operations & Content QA</h3>
+                    <p>
+                        Ensuring rigorous platform compliance, trust and safety moderation, and data integrity across fast-paced remote workflow systems.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Credentials (Refined Section 4) -->
+        <section id="credentials" class="section-block">
+            <div class="section-header">
+                <span class="section-kicker">// 04. Credentials & Certifications</span>
+                <h2 class="section-title">Verified Certifications</h2>
+            </div>
+
+            <div class="cert-grid">
+                <div class="bento-card cert-item">
+                    <div class="cert-icon">M</div>
+                    <div>
+                        <span style="font-size: 0.78rem; color: var(--accent-emerald); font-weight: 700; text-transform: uppercase;">Mercor</span>
+                        <h3 style="font-size: 1.08rem; margin: 0.2rem 0 0.4rem;">Introduction to Agents</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                            Foundational training on autonomous AI agent systems, multi-step workflows, and execution strategies.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bento-card cert-item">
+                    <div class="cert-icon">in</div>
+                    <div>
+                        <span style="font-size: 0.78rem; color: var(--accent-emerald); font-weight: 700; text-transform: uppercase;">LinkedIn Learning</span>
+                        <h3 style="font-size: 1.08rem; margin: 0.2rem 0 0.4rem;">Generative AI for Business Leaders</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                            Strategic implementation of generative AI frameworks, operational workflows, and quality governance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section with Upwork & LinkedIn Links -->
+        <section id="contact">
+            <div class="cta-card">
+                <h2>Ready to collaborate on your next project?</h2>
+                <p>
+                    Open for freelance contracts, AI evaluation tasks, Bengali localization, and remote operational assignments.
+                </p>
+                <div class="cta-buttons">
+                    <!-- তোমার আসল ইমেইল এবং LinkedIn/Upwork প্রোফাইল লিংক এখানে যুক্ত করা হয়েছে -->
+                    <a href="mailto:rayhanul.shihab@example.com" class="btn-glow">Send an Email</a>
+                    <a href="https://www.linkedin.com/in/rayhan2001/" target="_blank" class="btn-glass">LinkedIn Profile ↗</a>
+                    <a href="https://www.upwork.com/freelancers/~yourprofile" target="_blank" class="btn-glass">Upwork Profile ↗</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Md. Rayhanul Islam Shihab • Built for Remote AI & Linguistic Operations</p>
+    </footer>
+
+    <script>
+        function copyEmail() {
+            const email = "rayhanul.shihab@example.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const btn = document.getElementById("copyBtn");
+                btn.innerText = "✓ Email Copied!";
+                btn.style.borderColor = "#10B981";
+                btn.style.color = "#10B981";
+                setTimeout(() => {
+                    btn.innerText = "Copy Email";
+                    btn.style.borderColor = "";
+                    btn.style.color = "";
+                }, 2500);
+            });
+        }
+    </script>
+
+</body>
+</html>
